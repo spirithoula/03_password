@@ -14,9 +14,7 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-//click the button to get prompt box
 function generatePassword() {
-  //prompts user to enter a password length
   var passwordLength = prompt("Enter a password length between 8-128 characters");
   // if (isNaN(passwordLength)){
   //   alert("enter a number")
@@ -27,4 +25,43 @@ function generatePassword() {
   //   alert("password too long")
   // }
   var useLowercase = window.confirm("Do you want lowercase in your password?");
+  var useUppercase = window.confirm("Do you want uppercase in your password?");
+  var useNumbers = window.confirm("Do you want numbers in your password?");
+  var useSpecial = window.confirm("Do you want any special characters in your password?");
+  // if (useLowercase || useNumbers || useSpecial || useUppercase) {
+  //   alert("good choice")
+  // } else {
+  //   alert("bad choice")
+  // }
+  var password = "";
+  // var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz #$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  var numbers = "0123456789";
+  var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXTZ";
+  var lowerCase = "abcdefghiklmnopqrstuvwxyz";
+  var special = " #$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  var chars = "";
+
+  if (useLowercase) {
+    chars += lowerCase;
+  }
+
+  if (useUppercase) {
+    chars += upperCase;
+  }
+
+  if (useNumbers) {
+    chars += numbers;
+  }
+
+  if (useSpecial) {
+    chars += special;
+  }
+
+  for (var i = 0; i < passwordLength; i++) {
+    // This is the block of code that will run each time
+    var rnum = Math.floor(Math.random() * chars.length);
+		password += chars.substring(rnum,rnum+1);
+    console.log("password: " + password);
+  }
+  return password;
 }
