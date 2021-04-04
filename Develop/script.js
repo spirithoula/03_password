@@ -16,14 +16,14 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
   var passwordLength = prompt("Enter a password length between 8-128 characters");
-  // if (isNaN(passwordLength)){
-  //   alert("enter a number")
-  // }
-  // if (passwordLength < 8) {
-  //   alert("password too short")
-  // } else if (passwordLength > 128) {
-  //   alert("password too long")
-  // }
+  if (isNaN(passwordLength)){
+    alert("enter a number")
+  }
+  if (passwordLength < 8) {
+    alert("password too short")
+  } else if (passwordLength > 128) {
+    alert("password too long")
+  }
   var useLowercase = window.confirm("Do you want lowercase in your password?");
   var useUppercase = window.confirm("Do you want uppercase in your password?");
   var useNumbers = window.confirm("Do you want numbers in your password?");
@@ -34,8 +34,7 @@ function generatePassword() {
   //   alert("bad choice")
   // }
   var password = "";
-  // var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz #$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-  var numbers = "0123456789";
+
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXTZ";
   var lowerCase = "abcdefghiklmnopqrstuvwxyz";
   var special = " #$%&'()*+,-./:;<=>?@[\]^_`{|}~";
@@ -58,10 +57,8 @@ function generatePassword() {
   }
 
   for (var i = 0; i < passwordLength; i++) {
-    // This is the block of code that will run each time
     var rnum = Math.floor(Math.random() * chars.length);
 		password += chars.substring(rnum,rnum+1);
-    console.log("password: " + password);
   }
   return password;
 }
