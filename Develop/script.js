@@ -28,13 +28,14 @@ function generatePassword() {
   var useUppercase = window.confirm("Do you want uppercase in your password?");
   var useNumbers = window.confirm("Do you want numbers in your password?");
   var useSpecial = window.confirm("Do you want any special characters in your password?");
-  // if (useLowercase || useNumbers || useSpecial || useUppercase) {
-  //   alert("good choice")
-  // } else {
-  //   alert("bad choice")
-  // }
+  if (useLowercase || useNumbers || useSpecial || useUppercase) {
+    alert("Good Job!")
+  } else {
+    alert("Click Ok one or more times for your password")
+  }
   var password = "";
 
+  var numbers = "0123456789";
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXTZ";
   var lowerCase = "abcdefghiklmnopqrstuvwxyz";
   var special = " #$%&'()*+,-./:;<=>?@[\]^_`{|}~";
